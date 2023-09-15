@@ -34,7 +34,7 @@ app.use(userRouter)
 app.use(flightRouter)
 app.use(bookRouter)
 
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_, res: Response) => {
     res.sendStatus(200)
 })
 

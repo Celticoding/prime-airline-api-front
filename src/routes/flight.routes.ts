@@ -42,7 +42,6 @@ router.get('/flights', async (req: Request, res: Response) => {
     }
 });
 
-
 router.get('/flights/currencies', async (req: Request, res: Response) => {
     try {
         const response = await axios.get(Global.FLIGHT_API + "/flights/currencies");
