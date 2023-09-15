@@ -1,6 +1,7 @@
 import express from 'express';
 import { Request, Response } from 'express';
 import axios from 'axios';
+import Global from '../types/index'
 
 const router = express.Router();
 
@@ -27,7 +28,11 @@ router.get('/flights', async (req: Request, res: Response) => {
   }
 
   try {
-    const response = await axios.get(global.FLIGHT_API + "/flights");
+    const params = { params: {
+        currency: currency,
+        date: date
+    }}
+    const response = await axios.get(Global.FLIGHT_API + "/flights", params);
     res.send(response.data);
   } catch (e) {
     res.send({
@@ -39,7 +44,7 @@ router.get('/flights', async (req: Request, res: Response) => {
 
 
 router.get('/flights/currencies', async (req: Request, res: Response) => {
-    const response = await axios.get(global.FLIGHT_API + "/flights/currencies");
+    const response = await axios.get(Global.FLIGHT_API + "/flights/currencies");
     res.send(response.data);
   });
 
