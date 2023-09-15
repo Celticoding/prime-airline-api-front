@@ -35,7 +35,6 @@ router.get('/flights', async (req: Request, res: Response) => {
         const response = await axios.get(Global.FLIGHT_API + "/flights", params);
         res.send(response.data);
     } catch (exception) {
-        console.log(exception);
         res.send({
             'code': 'COULD_NOT_RETRIEVE_FLIGHTS',
             'message': 'Could not retrieve flights'
@@ -49,7 +48,6 @@ router.get('/flights/currencies', async (req: Request, res: Response) => {
         const response = await axios.get(Global.FLIGHT_API + "/flights/currencies");
         res.send(response.data);
     } catch (exception) {
-        console.log(exception);
         res.send({
             'code': 'COULD_NOT_RETRIEVE_CURRENCIES',
             'message': 'Could not retrieve currencies'
