@@ -4,11 +4,20 @@ import mustBeAuthenticated from '../middlewares/mustBeAuthenticated';
 import UserService from '../services/user.service';
 import mustNotBeAuthenticated from '../middlewares/mustNotBeAuthenticated';
 import { UserRequest } from '../request/user.request';
+import { UserDto } from '../dtos/user.dto';
 
 const router = express.Router();
 
 router.get('/me',mustBeAuthenticated, async (req: Request, res: Response) => {
-  res.send(await UserService.getMe(+req.session.userId!));
+  const user = await UserService.getMe(+req.session.userId!)
+  if (!user) {
+    res.status(401)
+    res.send('error when fetching current user')
+    return;
+  }
+  const {email,id, name} = user
+  const userDto = {id, email, name} as UserDto
+  res.send(userDto);
 });
 
 

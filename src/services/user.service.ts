@@ -13,7 +13,7 @@ class UserService {
 
   }
 
-  static getMe(userId: number): UserDto | undefined {
+  static getMe(userId: number): UserRequest | undefined {
     return InMemoryData.users.find((u) => u.id === userId);
 
   }
