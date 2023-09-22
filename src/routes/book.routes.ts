@@ -37,7 +37,7 @@ router.get('/booking-history', async (req: Request, res: Response) => {
 
 router.post('/cancel-book', async (req: Request, res: Response) => {
   try {
-    const response = await axios.post(global.QUEUE_API + "/cancel-book", {bookingId: req.body});
+    const response = await axios.post(global.QUEUE_API + "/cancel-book", { bookingId: req.body.bookingId });
     res.send(response.data);
   } catch (e) {
     res.send({
