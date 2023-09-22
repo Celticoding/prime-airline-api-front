@@ -1,7 +1,16 @@
 # prime-airline-api-front
 
-## Endpoints
+## How to start
 
+```
+npm i
+npm run dev
+```
+
+## Endpoints
+````js
+npm run dev
+```
 ```json
 {
   "swagger": "2.0",
