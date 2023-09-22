@@ -7,9 +7,7 @@ const router = express.Router();
 router.post('/book', async (req: Request, res: Response) => {
 
   try {
-    console.log(global.BOOKING_API + "/book")
     const response = await axios.post(global.BOOKING_API + "/book", {book: req.body});
-    console.log(response);
     res.send(response.data);
   } catch (e) {
     console.log(e)
