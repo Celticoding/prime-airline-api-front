@@ -4,7 +4,7 @@ import mustBeAuthenticated from '../middlewares/mustBeAuthenticated';
 import UserService from '../services/user.service';
 import mustNotBeAuthenticated from '../middlewares/mustNotBeAuthenticated';
 import { UserRequest } from '../request/user.request';
-import { UserDto } from '../dtos/user.dto';
+import UserDto from '../dtos/user.dto';
 
 const router = express.Router();
 
